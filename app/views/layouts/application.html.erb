@@ -22,28 +22,12 @@
 
   <body>
 
-    <nav class="top-bar">
-      <ul class="title-area">
-        <li class="name">
-          <h1><%= link_to "Exercisr", root_path %></a></h1>
-        </li>
-      </ul>
+    <div id="nav_window">
+      <%= render 'layouts/nav' %>
+    </div>
 
-      <section class="top-bar-section">
-        <ul class="right">
-          <li class="divider"></li>
-          <% if current_user %>
-            <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
-            <li class="divider"></li>
-            <li><%= link_to "Logout", :logout %></li>
-          <% else %>
-            <li><%= link_to "Register", new_user_path %></li>
-            <li class="divider"></li>
-            <li><%= link_to "Login", :login %></li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
+    <div id="signup_window" class="reveal-modal"></div>
+    <div id="login_window" class="reveal-modal"></div>
 
     <% if !notice.blank? || !alert.blank? %>
       <div class="row">

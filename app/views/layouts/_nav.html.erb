@@ -1,0 +1,26 @@
+<nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "Exercisr", root_path %></a></h1>
+    </li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="right">
+      <li class="divider"></li>
+      <% if current_user %>
+        <li><%= link_to "Exercises", exercises_path %></li>
+        <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Logout", :logout %></li>
+        <li><%= link_to "Logout AJAX", :logout, :remote => true %></li>
+      <% else %>
+        <li><%= link_to "Register", new_user_path %></li>
+        <li><%= link_to "Register (AJAX)", new_user_path, :remote => true, :data => {"reveal-id" => "signup_window"} %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Login", :login %></li>
+        <li><%= link_to "Login AJAX", :login, :remote => true, :data => {"reveal-id" => "login_window"} %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

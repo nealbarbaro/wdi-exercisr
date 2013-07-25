@@ -1,27 +1,18 @@
 %h1 Listing exercises
 
-%table
-  %tr
-    %th Activity
-    %th Value
-    %th Units
-    %th Completed
-    %th User
-    %th
-    %th
-    %th
+#exercise_drop
+  = select_tag "activities", options_from_collection_for_select(@exercises, "activity", "activity"), class: "select_activity"
 
-  - @exercises.each do |exercise|
-    %tr
-      %td= exercise.activity
-      %td= exercise.value
-      %td= exercise.units
-      %td= exercise.completed
-      %td= exercise.user
-      %td= link_to 'Show', exercise
-      %td= link_to 'Edit', edit_exercise_path(exercise)
-      %td= link_to 'Destroy', exercise, method: :delete, data: { confirm: 'Are you sure?' }
+= button_tag "Checkout", class: "activity_button"
+
+#exercise_table
+  = render 'exercises'
 
 %br
 
-= link_to 'New Exercise', new_exercise_path
+= link_to 'New Exercise', new_exercise_path, class: "button"
+= link_to 'New Exercise AJAX', new_exercise_path, class: "button", :remote => true, :data => {"reveal-id" => "exercise_window"}
+
+#exercise_window.reveal-modal.medium
+
+#activity_metrics

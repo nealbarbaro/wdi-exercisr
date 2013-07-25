@@ -15,7 +15,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: wdi-exercisr_development
+  database: wdi-exercisr2_development
   pool: 5
   username: <%= ENV['DB_USER'] %>
   password: <%= ENV['DB_PASS'] %>
@@ -41,7 +41,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: wdi-exercisr_test
+  database: wdi-exercisr2_test
   pool: 5
   username: <%= ENV['DB_USER'] %>
   password: <%= ENV['DB_PASS'] %>
@@ -49,7 +49,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: wdi-exercisr_production
+  database: wdi-exercisr2_production
   pool: 5
   username: <%= ENV['DB_USER'] %>
   password: <%= ENV['DB_PASS'] %>

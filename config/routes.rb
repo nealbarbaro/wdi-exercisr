@@ -1,6 +1,6 @@
 WdiExercisr::Application.routes.draw do
   resources :exercises
-
+  match '/exercises/chart/:activity' => 'exercises#chart'
 
   root :to => 'users#index'
   resources :user_sessions

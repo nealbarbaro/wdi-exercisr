@@ -2,7 +2,7 @@ class ExercisesController < ApplicationController
   # GET /exercises
   # GET /exercises.json
   def index
-    @exercises = Exercise.all
+    @exercises = current_user.exercises
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,7 +28,7 @@ class ExercisesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @exercise }
+      format.js
     end
   end
 
@@ -44,11 +44,12 @@ class ExercisesController < ApplicationController
 
     respond_to do |format|
       if @exercise.save
+        @exercises = current_user.exercises
         format.html { redirect_to @exercise, notice: 'Exercise was successfully created.' }
-        format.json { render json: @exercise, status: :created, location: @exercise }
+        format.js
       else
         format.html { render action: "new" }
-        format.json { render json: @exercise.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -79,5 +80,11 @@ class ExercisesController < ApplicationController
       format.html { redirect_to exercises_url }
       format.json { head :no_content }
     end
+  end
+
+  def chart
+    @exercises = current_user.exercises
+    activity = params[:activity]
+    render :json => current_user.exercises.where(:activity => activity)
   end
 end
