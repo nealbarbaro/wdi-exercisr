@@ -17,6 +17,8 @@
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/custom.modernizr" %>
+    <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+
     <%= csrf_meta_tags %>
   </head>
 
@@ -46,5 +48,7 @@
     <%= yield %>
 
     <%= javascript_include_tag "application" %>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+      <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
   </body>
 </html>

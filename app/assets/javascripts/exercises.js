@@ -1,13 +1,19 @@
 $(document).ready(function(){
 
   var graph_activity = function(exercise_data){
-    console.log("graph_activity");
     console.log(exercise_data);
+    $('#activity_metrics').html("");
+    Morris.Line({
+      element: 'activity_metrics',
+      data: exercise_data,
+      xkey: 'completed',
+      ykeys: ['value'],
+      labels: ['value']
+    });
   }; // graph_activity
 
   var requestChart = function() {
     var activity = $('#activities').val();
-    console.log(activity);
     $.ajax({
       dataType: "json",
       type: "get",
